@@ -5,8 +5,9 @@
 class CasaSmart
 {
 private:
-    // Compozitie si Polimorfism: Vectorul stocheaza POINTERI la clasa de baza (*)
-    // Astfel, in aceeasi colectie putem pune si obiecte de tip BecRgb si de tip Termostat
+    //compozitie si polimorfism: Vectorul stocheaza pointeri la clasa de baza (*)
+    //astfel, in aceeasi colectie putem pune si obiecte de tip BecRgb si de tip Termostat
+    //DispozitivSmart* accepta orice obiect derivat
     std::vector<DispozitivSmart*> dispozitive;
 public:
 

@@ -3,7 +3,7 @@
 //initializam atributele direct in lista de initializare a constructorului
 int DispozitivSmart::numarTotal = 0;
 
-// Implementarea funcției statice
+//implementarea functiei statice
 int DispozitivSmart::getNumarTotal()
 {
     return numarTotal;
@@ -12,12 +12,14 @@ int DispozitivSmart::getNumarTotal()
 DispozitivSmart::DispozitivSmart(std::string n) : nume(n), estePornit(false)
 {
     numarTotal++; //de fiecare data cand se creeaza un dispozitiv (Bec sau Termostat), contorul creste
+    //std::cout << "S-a creat dispozitivul: " << nume << "\n";
 }
 
 //implementam destructorul pentru a scadea contorul
 DispozitivSmart::~DispozitivSmart()
 {
     numarTotal--; //cand un obiect este sters, contorul scade
+    //std::cout << "S-a sters dispozitivul: " << nume << "\n";
 }
 
 

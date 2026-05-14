@@ -2,6 +2,7 @@
 #include "Interfete.h"
 #include "Termostat.h"
 #include "Exceptii.h"
+#include "Televizor.h"
 
 CasaSmart& CasaSmart::operator+=(DispozitivSmart* d)
 {
@@ -23,7 +24,7 @@ void CasaSmart::activeazaModSeara()
     std::cout << "\n>>> Activare Mod Seara...\n";
     for (auto d : dispozitive)
     {
-        //dynamic_cast: Intrebam sistemul la rulare daca pointerul curent de baza
+        //dynamic_cast: intrebam sistemul la rulare daca pointerul curent de baza
         //implementeaza, de fapt, interfata IReglabil. Daca da, metoda returneaza pointerul valid
         IReglabil* r = dynamic_cast<IReglabil*>(d);
         if (r) r->regleazaNivel(20);
@@ -31,6 +32,9 @@ void CasaSmart::activeazaModSeara()
         //intrebam daca pointerul reprezinta de fapt un Termostat pentru a aplica o setare specifica
         Termostat* t = dynamic_cast<Termostat*>(d);
         if (t) t->setTemperatura(22.0);
+
+        Televizor* tv = dynamic_cast<Televizor*>(d);
+        if (tv) tv->opreste();
     }
 }
 
@@ -76,13 +80,17 @@ void CasaSmart::stergeDispozitiv(const std::string& nume)
         if ((*it)->getNume() == nume)
         {
             delete *it; //eliberam memoria
-            dispozitive.erase(it); //scoatem referinta din vector
+            dispozitive.erase(it); //scoatem referinta din lista casei
             std::cout << "-> Dispozitiv sters cu succes.\n";
             return;
         }
     }
     throw DispozitivInexistentException(nume);
 }
+
+
+//Copy-and-Swap
+//facem copie, o interschimbam cu originalul si stergem noua copie (vechil original)
 
 //constructor de copiere: creeaza obiecte noi identice (Deep Copy) folosind clone()
 CasaSmart::CasaSmart(const CasaSmart& other)

@@ -2,7 +2,10 @@
 #include "Exceptii.h"
 
 //initializam termostatul cu o temperatura prestabilita (20.0)
-Termostat::Termostat(std::string n) : DispozitivSmart(n), temperatura(20.0) {}
+Termostat::Termostat(std::string n) : DispozitivSmart(n), temperatura(20.0)
+{
+    //trimit numele n si initializez temperatura cu o valoare de start 20
+}
 
 void Termostat::setTemperatura(float t)
 {

@@ -2,6 +2,9 @@
 #include "DispozitivSmart.h"
 
 //termostatul mosteneste toate functionalitatile DispozitivuluiSmart
+
+//spre deosebire de BecRgb, termostatul are o mostenire simpla
+//el este un DispozitivSmart, dar nu moștenește interfața IReglabil
 class Termostat : public DispozitivSmart
 {
 private:

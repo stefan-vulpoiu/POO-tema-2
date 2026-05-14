@@ -15,4 +15,6 @@ add_executable(Tema_2_POO
         Termostat.cpp
         CasaSmart.h
         CasaSmart.cpp
+        Televizor.cpp
+        Televizor.h
 )

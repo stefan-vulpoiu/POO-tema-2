@@ -1,7 +1,11 @@
 #include "BecRgb.h"
 #include "Exceptii.h"
 
-BecRgb::BecRgb(std::string n) : DispozitivSmart(n), intensitate(0) {}
+BecRgb::BecRgb(std::string n) : DispozitivSmart(n), intensitate(0)
+{
+    //trimit numele mai departe catre constructorul clasei de baza ca sa il initializeze el,
+    //apoi setez intensitatea initiala a becului la 0
+}
 
 void BecRgb::regleazaNivel(int procent)
 {
@@ -10,7 +14,7 @@ void BecRgb::regleazaNivel(int procent)
         throw ValoareInvalidaException("Intensitatea trebuie sa fie intre 0 si 100!");
 
     intensitate = procent;
-    
+
     if (intensitate > 0)
         porneste();
     else
