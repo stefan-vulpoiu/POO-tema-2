@@ -13,5 +13,12 @@ public:
 
     //'override' obliga compilatorul sa verifice daca suprascriem corect o functie virtuala din clasa parinte
     void regleazaNivel(int procent) override;
-    void afisare(std::ostream& os) const override;
+
+    DispozitivSmart* clone() const override
+    {
+        return new BecRgb(*this); //foloseste constructorul de copiere default
+    }
+
+protected:
+    void do_afisare(std::ostream& os) const override;
 };

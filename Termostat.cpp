@@ -10,11 +10,11 @@ void Termostat::setTemperatura(float t)
     if (t < 10.0 || t > 35.0)
         throw ValoareInvalidaException("Temperatura trebuie sa fie intre 10 si 35 grade!");
     temperatura = t;
-    estePornit = true;
+    porneste();
 }
 
-void Termostat::afisare(std::ostream& out) const
+void Termostat::do_afisare(std::ostream& out) const
 {
-    DispozitivSmart::afisare(out);
+    DispozitivSmart::do_afisare(out);
     out << " | Temp: " << temperatura << "C";
 }

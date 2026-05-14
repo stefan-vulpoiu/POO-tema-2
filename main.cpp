@@ -153,7 +153,7 @@ int main()
                         }
                         catch (const SmartHomeException& e)
                         {
-                            cerr << "Eroare la setare -> " << e.spuneMotivul() << endl;
+                            cerr << "Eroare la setare -> " << e.what() << endl;
                         }
                     }
                     else
@@ -169,7 +169,7 @@ int main()
                             }
                             catch (const SmartHomeException& e)
                             {
-                                cerr << "Eroare la stergere -> " << e.spuneMotivul() << endl;
+                                cerr << "Eroare la stergere -> " << e.what() << endl;
                             }
                         }
                         else
@@ -178,3 +178,28 @@ int main()
 
     return 0;
 }
+
+
+/*
+Ghid de testare la rulare:
+
+- status: afiseaza starea tuturor dispozitivelor (demonstreaza NVI si Polimorfismul)
+
+- seteaza: modifica un dispozitiv:
+    * Nume: LuminaDormitor | Valoare: 0-100
+    * Nume: LuminaSufragerie | Valoare: 0-100 (exemplu: 80 -> Becul se aprinde la 80%)
+    * Nume: TermostatCentral | Valoare: 10-35 (exemplu: 100 -> Prinde exceptia custom (100 > 35 grade)
+                                               si afiseaza eroarea fara sa dea crash)
+
+- seara: scade automat toate becurile la 20% si seteaza termostatul la 22C (demonstreaza dynamic_cast)
+
+- sterge: elimina definitiv un dispozitiv:
+    * Nume: LuminaDormitor | Sterge dispozitivul din vector si elibereaza memoria
+    * Nume: LuminaSufragerie | Sterge dispozitivul din vector si elibereaza memoria
+    * Nume: TermostatCentral | Sterge dispozitivul din vector si elibereaza memoria
+    * Nume: Invalid | (exemplu: Televizor -> Prinde exceptia custom de dispozitiv inexistent
+                       si afiseaza eroarea fara sa dea crash)
+
+- exit: inchide programul curat (apeleaza destructorul virtual pentru a preveni memory leaks)
+
+*/

@@ -9,5 +9,12 @@ private:
 public:
     Termostat(std::string n);
     void setTemperatura(float t);
-    void afisare(std::ostream& out) const override;
+
+    DispozitivSmart* clone() const override
+    {
+        return new Termostat(*this);
+    }
+
+protected:
+    void do_afisare(std::ostream& os) const override;
 };

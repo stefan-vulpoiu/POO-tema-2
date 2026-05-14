@@ -44,6 +44,7 @@ void CasaSmart::regleazaDispozitiv(const std::string& nume, int valoare)
             if (r)
             {
                 r->regleazaNivel(valoare);
+                std::cout << "-> Setare aplicata cu succes!\n";
                 return;
             }
 
@@ -51,6 +52,7 @@ void CasaSmart::regleazaDispozitiv(const std::string& nume, int valoare)
             if (t)
             {
                 t->setTemperatura((float)valoare);
+                std::cout << "-> Setare aplicata cu succes!\n";
                 return;
             }
 
@@ -80,6 +82,34 @@ void CasaSmart::stergeDispozitiv(const std::string& nume)
         }
     }
     throw DispozitivInexistentException(nume);
+}
+
+//constructor de copiere: creeaza obiecte noi identice (Deep Copy) folosind clone()
+CasaSmart::CasaSmart(const CasaSmart& other)
+{
+    for (auto d : other.dispozitive)
+    {
+        // Aici folosim "Constructorul Virtual" clone()
+        this->dispozitive.push_back(d->clone());
+    }
+}
+
+//functia swap: interschimba vectorii de dispozitive intre doua obiecte CasaSmart
+void swap(CasaSmart& first, CasaSmart& second) noexcept
+{
+    using std::swap;
+    swap(first.dispozitive, second.dispozitive);
+}
+
+//operatorul de atribuire: foloseste idiomul Copy-and-Swap pentru siguranta
+CasaSmart& CasaSmart::operator=(CasaSmart other)
+{
+    //'other' a fost deja copiat prin valoare (apeland constructorul de copiere)
+    //interschimbam datele noastre cu cele din copia temporara
+    swap(*this, other);
+
+    return *this;
+    //la ieirea din funcție, 'other' este distrus automat, eliberand memoria veche
 }
 
 CasaSmart::~CasaSmart()

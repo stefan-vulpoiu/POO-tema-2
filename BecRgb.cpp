@@ -10,13 +10,17 @@ void BecRgb::regleazaNivel(int procent)
         throw ValoareInvalidaException("Intensitatea trebuie sa fie intre 0 si 100!");
 
     intensitate = procent;
-    estePornit = (intensitate > 0);
+    
+    if (intensitate > 0)
+        porneste();
+    else
+        opreste();
 }
 
-void BecRgb::afisare(std::ostream& out) const
+void BecRgb::do_afisare(std::ostream& out) const
 {
     //apelam functionalitatea din clasa parinte pentru a afisa "[Nume] Stare"
-    DispozitivSmart::afisare(out);
+    DispozitivSmart::do_afisare(out);
     //si apoi completam specific cu informatiile doar pentru Bec
     out << " | Luminozitate: " << intensitate << "%";
 }

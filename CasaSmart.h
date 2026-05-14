@@ -10,6 +10,16 @@ private:
     std::vector<DispozitivSmart*> dispozitive;
 public:
 
+    CasaSmart() = default;
+    //constructor de copiere (Deep Copy)
+    CasaSmart(const CasaSmart& other);
+
+    //functia swap prietena
+    friend void swap(CasaSmart& first, CasaSmart& second) noexcept;
+
+    //supraincarcarea operatorului= (Copy-and-Swap)
+    CasaSmart& operator=(CasaSmart other);
+
     //supraincarcarea operatorului '+=', pentru a putea adauga dispozitive (casa += bec_nou)
     CasaSmart& operator+=(DispozitivSmart* d);
 

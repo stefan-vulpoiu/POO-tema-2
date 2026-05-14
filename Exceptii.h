@@ -10,9 +10,11 @@ private:
 public:
     SmartHomeException(const std::string& m) : mesaj(m) {}
 
-    std::string spuneMotivul() const
+    //suprascriem metoda standard din std::exception
+    //noexcept garanteaza ca aceasta funcție nu va arunca, la randul ei, o alta exceptie
+    const char* what() const noexcept override
     {
-        return "Notificare sistem: " + mesaj;
+        return mesaj.c_str();
     }
 };
 
