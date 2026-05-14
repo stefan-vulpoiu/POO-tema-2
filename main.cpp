@@ -74,16 +74,16 @@ int main()
         //excepțiile noastre personalizate (ValoareInvalida, DispozitivInexistent)
         catch (const SmartHomeException& e)
         {
-            cerr << "\a[EROARE SMART HOME]: " << e.what() << endl;
+            cerr << "Invalid: " << e.what() << endl;
         }
         //erori standard de C++
         catch (const exception& e)
         {
-            cerr << "\a[EROARE SISTEM]: " << e.what() << endl;
+            cerr << "Eroare de sistem: " << e.what() << endl;
         }
         catch (...)
         {
-            cerr << "\a[EROARE]: A aparut o problema necunoscuta!" << endl;
+            cerr << "A aparut o problema necunoscuta!" << endl;
         }
     }
 
