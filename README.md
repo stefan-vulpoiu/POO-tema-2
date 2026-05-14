@@ -49,11 +49,15 @@ Obiective tehnice:
 CONCEPTE POO IMPLEMENTATE:
 Încapsulare: utilizarea modificatorilor de acces private pentru protejarea
 datelor si expunerea lor prin metode publice (getteri/setteri);
+
 Moștenire: clasele BecRgb si Termostat deriva din clasa de baza DispozitivSmart;
+
 Polimorfism: utilizarea metodelor virtual si a dynamic_cast pentru a apela
 comportamente diferite in functie de tipul real al obiectului la runtime;
+
 Abstractizare (Interfețe): Implementarea interfetei IReglabil pentru a
 uniformiza controlul dispozitivelor cu variator;
+
 Supraincarcarea Operatorilor: Implementarea operatorului << pentru afisare si +=
 pentru adaugarea facila a dispozitivelor în sistem.
 
