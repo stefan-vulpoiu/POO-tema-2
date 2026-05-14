@@ -38,49 +38,43 @@ int main()
 
         if (comanda == "exit")
             break;
-        else
-            if (comanda == "status")
-            casa.afiseazaToate();
-            else
-                if (comanda == "seara")
-                    casa.activeazaModSeara();
-                else
-                    if (comanda == "seteaza")
-                    {
-                        string nume;
-                        int val;
-                        cout << "Nume dispozitiv: ";
-                        cin >> nume;
-                        cout << "Valoare noua: ";
-                        cin >> val;
 
-                        try
-                        {
-                            casa.regleazaDispozitiv(nume, val);
-                        }
-                        catch (const SmartHomeException& e)
-                        {
-                            cerr << "Eroare la setare -> " << e.what() << endl;
-                        }
-                    }
-                    else
-                        if (comanda == "sterge")
-                        {
-                            string nume;
-                            cout << "Nume dispozitiv de sters: ";
-                            cin >> nume;
-
-                            try
-                            {
-                                casa.stergeDispozitiv(nume);
-                            }
-                            catch (const SmartHomeException& e)
-                            {
-                                cerr << "Eroare la stergere -> " << e.what() << endl;
-                            }
-                        }
-                        else
-                            cout << "Comanda invalida! Te rog sa incerci din nou.\n";
+        try {
+            if (comanda == "status") {
+                casa.afiseazaToate();
+            }
+            else if (comanda == "seara") {
+                casa.activeazaModSeara();
+            }
+            else if (comanda == "seteaza") {
+                string nume;
+                int valoare;
+                cout << "Nume dispozitiv: "; cin >> nume;
+                cout << "Valoare noua: "; cin >> valoare;
+                casa.regleazaDispozitiv(nume, valoare);
+            }
+            else if (comanda == "sterge") {
+                string nume;
+                cout << "Nume de sters: "; cin >> nume;
+                casa.stergeDispozitiv(nume);
+            }
+            else {
+                cout << "Comanda invalida! Te rog sa incerci din nou.\n";
+            }
+        }
+        //excepțiile noastre personalizate (ValoareInvalida, DispozitivInexistent)
+        catch (const SmartHomeException& e) {
+            cerr << "\a[EROARE SMART HOME]: " << e.what() << endl;
+        }
+        //erori standard de C++
+        catch (const exception& e)
+        {
+            cerr << "\a[EROARE SISTEM]: " << e.what() << endl;
+        }
+        catch (...)
+        {
+            cerr << "\a[EROARE]: A aparut o problema necunoscuta!" << endl;
+        }
     }
 
     return 0;
