@@ -47,6 +47,7 @@ Obiective tehnice:
 
 
 CONCEPTE POO IMPLEMENTATE:
+
 Încapsulare: utilizarea modificatorilor de acces private pentru protejarea
 datelor si expunerea lor prin metode publice (getteri/setteri);
 
