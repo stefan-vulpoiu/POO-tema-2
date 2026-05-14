@@ -13,9 +13,9 @@ public:
     DispozitivSmart(std::string n); //constructor
     virtual ~DispozitivSmart(); //destructor virtual
 
-    void afisare(std::ostream& os) const
+    void afisare(std::ostream& out) const
     {
-        do_afisare(os); //apeleaza logica polimorfica
+        do_afisare(out); //apeleaza logica polimorfica
     }
 
     static int getNumarTotal();
@@ -25,11 +25,14 @@ public:
     std::string getNume() const;
 
 
-    friend std::ostream& operator<<(std::ostream& os, const DispozitivSmart& d);
+    friend std::ostream& operator<<(std::ostream& out, const DispozitivSmart& d);
 
     virtual DispozitivSmart* clone() const = 0;
 
+
+//protected si nu private pentru ca vrem ca si clasele derivate BecRgb si Termostat
+//sa aiba dreptul sa o vada si sa o suprascrie
 protected:
     // NVI:logica virtuala ascunsa, pe care derivatele o vor suprascrie
-    virtual void do_afisare(std::ostream& os) const;
+    virtual void do_afisare(std::ostream& out) const;
 };
