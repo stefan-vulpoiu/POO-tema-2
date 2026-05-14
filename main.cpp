@@ -39,31 +39,41 @@ int main()
         if (comanda == "exit")
             break;
 
-        try {
-            if (comanda == "status") {
+        try
+        {
+            if (comanda == "status")
+            {
                 casa.afiseazaToate();
             }
-            else if (comanda == "seara") {
-                casa.activeazaModSeara();
-            }
-            else if (comanda == "seteaza") {
-                string nume;
-                int valoare;
-                cout << "Nume dispozitiv: "; cin >> nume;
-                cout << "Valoare noua: "; cin >> valoare;
-                casa.regleazaDispozitiv(nume, valoare);
-            }
-            else if (comanda == "sterge") {
-                string nume;
-                cout << "Nume de sters: "; cin >> nume;
-                casa.stergeDispozitiv(nume);
-            }
-            else {
-                cout << "Comanda invalida! Te rog sa incerci din nou.\n";
-            }
+            else
+                if (comanda == "seara")
+                {
+                    casa.activeazaModSeara();
+                }
+                else
+                    if (comanda == "seteaza")
+                    {
+                        string nume;
+                        int valoare;
+                        cout << "Nume dispozitiv: "; cin >> nume;
+                        cout << "Valoare noua: "; cin >> valoare;
+                        casa.regleazaDispozitiv(nume, valoare);
+                    }
+                    else
+                        if (comanda == "sterge")
+                        {
+                            string nume;
+                            cout << "Nume de sters: "; cin >> nume;
+                            casa.stergeDispozitiv(nume);
+                        }
+                        else
+                        {
+                            cout << "Comanda invalida! Te rog sa incerci din nou.\n";
+                        }
         }
         //excepțiile noastre personalizate (ValoareInvalida, DispozitivInexistent)
-        catch (const SmartHomeException& e) {
+        catch (const SmartHomeException& e)
+        {
             cerr << "\a[EROARE SMART HOME]: " << e.what() << endl;
         }
         //erori standard de C++
