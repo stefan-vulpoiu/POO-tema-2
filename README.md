@@ -60,14 +60,31 @@ Abstractizare (Interfețe): Implementarea interfetei IReglabil pentru a
 uniformiza controlul dispozitivelor cu variator;
 
 Supraincarcarea Operatorilor: Implementarea operatorului << pentru afisare si +=
-pentru adaugarea facila a dispozitivelor în sistem.
+pentru adaugarea facila a dispozitivelor în sistem;
+
+STL: Implementarea std::vector pentru gestionarea colectiei polimorfice, std::string pentru texte si librariile de fluxuri (iostream, ostream, cerr);
+
+Membri Statici: Variabile care aparțin întregii clase, nu unui singur obiect, utile pentru contorizare (static int numarTotal);
+
+Constructor Virtual (Idiomul clone): O metoda prin care un pointer de baza poate crea o copie a obiectului derivat real la care pointeaza (virtual DispozitivSmart* clone() const = 0; (suprascris să returneze new BecRgb(*this););
+
+NVI: O metodă publică non-virtuală din clasa de bază dictează pașii, iar ea apelează în spate o metodă virtuală protejată, pe care derivatele o suprascriu (exemplu: Metoda publică afisare() care apelează intern protected: virtual void do_afisare() );
+
+Tratarea exceptiilor: Crearea unei ierarhii proprii de erori derivate din biblioteca standard, pentru a preveni crash-urile (class SmartHomeException : public std::exception și suprascrierea metodei standard what());
+
+Destructor Virtual: Esential pentru evitarea scurgerilor de memorie (Memory Leaks) atunci când eliberezi resurse polimorfice (exemplu: virtual ~DispozitivSmart(); asigură că apelul delete pointer_de_baza; șterge inclusiv bucata derivată (Bec/Termostat) ).
 
 
 GHID DE UTILIZARE:
+
 status: afiseaza toate dispozitivele si starea lor curenta;
+
 seara: activeaza un macro polimorfic care regleaza automat toate luminile si temperatura;
+
 seteaza: permite modificarea manuala a unui dispozitiv cautat dupa nume;
+
 sterge: elimina un dispozitiv din sistem si elibereaza memoria aferenta;
+
 exit: inchide aplicatia in siguranta.
 
 
