@@ -13,7 +13,6 @@ void Frigider::regleazaNivel(int valoare)
     }
 
     temperaturaCurenta = (float)valoare;
-    std::cout << "-> Frigiderul '" << getNume() << "' a fost setat la " << temperaturaCurenta << " grade\n";
 }
 
 void Frigider::do_afisare(std::ostream& out) const
