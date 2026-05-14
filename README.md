@@ -112,3 +112,39 @@ pentru a asigura o separare clara intre interfata, logica si executie:
 
 - main.cpp: Coordoneaza intreaga aplicatie, incluzand clasa manager (CasaSmart)
             si exceptiile, oferind interfata interactiva pentru utilizator.
+
+Bibliografie:
+
+https://blogdeit.ro/cancel-save-changes-cele-4-principii-ale-oop-abstractizare-incapsulare-mostenire-polimorfism
+
+https://wiki.dcae.pub.ro/index.php/C%2B%2B_POO_Lab_Lucrarea_2
+
+https://www.geeksforgeeks.org/cpp/dynamic-_cast-in-cpp/
+
+https://en.cppreference.com/cpp/language/dynamic_cast
+
+https://www.geeksforgeeks.org/cpp/encapsulation-in-cpp/
+
+https://www.w3schools.com/cpp/cpp_inheritance.asp
+
+https://en.cppreference.com/cpp/memory/polymorphic
+
+https://www.geeksforgeeks.org/cpp/cpp-polymorphism/
+
+https://en.cppreference.com/cpp/language/derived_class
+
+https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7260
+
+https://github.com/andrachiritoiu/University-Work/tree/main/Anul%201/Semestrul%202/Programare%20Orientata%20pe%20Obiecte/Proiecte
+
+https://github.com/AlexVulpoiu/OOP-Homework_2
+
+https://github.com/DimaOanaTeodora/Uni-Work-2019-2022/tree/main/AN%201%20SEM%202/Programare%20orientata%20pe%20obiecte
+
+https://github.com/DavidPatranjel/Proiect-POO
+
+https://github.com/dariabroscoteanu/OOP/blob/main/Projects/Project%202.cpp
+
+https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md
+
+https://www.google.com/search?q=concepte+poo+explicate+si+implementate+in+c%2B%2B&sca_esv=23181f9f9c0f0df0&hl=ro&sxsrf=ANbL-n5_ffFF5Q-PA4_Rj7VuXeXXk5oaCQ%3A1778746175913&source=hp&ei=P4MFapepNa_jxc8PiuqNiQI&iflsig=AFdpzrgAAAAAagWRTxmgUs-VcE06F9lbR8VAIo-XOTCS&ved=0ahUKEwjXxNXvqbiUAxWvcfEDHQp1IyEQ4dUDCCA&uact=5&oq=concepte+poo+explicate+si+implementate+in+c%2B%2B&gs_lp=Egdnd3Mtd2l6Ii1jb25jZXB0ZSBwb28gZXhwbGljYXRlIHNpIGltcGxlbWVudGF0ZSBpbiBjKysyBRAhGKABMgUQIRifBTIFECEYnwVI229QrgVYom5wCXgAkAEAmAHUAaABxUGqAQYwLjUxLjG4AQPIAQD4AQGYAj2gAqpDqAIKwgIKEAAYAxiPARjqAsICChAuGAMYjwEY6gLCAgoQABiABBiKBRhDwgIQEAAYgAQYigUYQxixAxiDAcICCxAAGIAEGLEDGIMBwgIKEC4YgAQYigUYQ8ICDhAAGIAEGIoFGLEDGIMBwgIEEAAYA8ICEBAuGIAEGIoFGEMYsQMYgwHCAggQABiABBixA8ICBRAAGIAEwgILEC4YgAQYxwEYrwHCAgYQABgWGB7CAgUQABjvBcICBBAhGBXCAgcQIRgKGKABmAMH8QWOjkD_cgNfWJIHBjkuNTEuMaAHq80BsgcGMC41MS4xuAeJQ8IHCDExLjM5LjExyAdxgAgB&sclient=gws-wiz

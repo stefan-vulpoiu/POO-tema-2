@@ -5,6 +5,8 @@
 #include "Termostat.h"
 #include "Exceptii.h"
 #include "Televizor.h"
+#include "Frigider.h"
+#include "AerConditionat.h"
 
 using namespace std;
 
@@ -28,6 +30,8 @@ int main()
     casa += new BecRgb("LuminaDormitor");
     casa += new Termostat("TermostatCentral");
     casa += new Televizor("TV_Living");
+    casa += new Frigider("Frigider_Bucatarie", 3.5);
+    casa += new AerConditionat("AC_Sufragerie", 24.0);
 
     string comanda;
     while (true)

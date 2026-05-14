@@ -3,6 +3,8 @@
 #include "Termostat.h"
 #include "Exceptii.h"
 #include "Televizor.h"
+#include "Frigider.h"
+#include "AerConditionat.h"
 
 CasaSmart& CasaSmart::operator+=(DispozitivSmart* d)
 {
@@ -27,7 +29,11 @@ void CasaSmart::activeazaModSeara()
         //dynamic_cast: intrebam sistemul la rulare daca pointerul curent de baza
         //implementeaza, de fapt, interfata IReglabil. Daca da, metoda returneaza pointerul valid
         IReglabil* r = dynamic_cast<IReglabil*>(d);
-        if (r) r->regleazaNivel(20);
+
+        //if (r) r->regleazaNivel(20);
+
+        Frigider* f = dynamic_cast<Frigider*>(d);
+        if (r && !f) r->regleazaNivel(20);
 
         //intrebam daca pointerul reprezinta de fapt un Termostat pentru a aplica o setare specifica
         Termostat* t = dynamic_cast<Termostat*>(d);
@@ -35,6 +41,9 @@ void CasaSmart::activeazaModSeara()
 
         Televizor* tv = dynamic_cast<Televizor*>(d);
         if (tv) tv->opreste();
+
+        AerConditionat* ac = dynamic_cast<AerConditionat*>(d);
+        if (ac) ac->opreste();
     }
 }
 
